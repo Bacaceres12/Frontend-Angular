@@ -1,0 +1,63 @@
+<div class="login-page">
+  <div class="login-box animate__animated animate__backInLeft">
+    <div class="login-image"></div>
+    <div class="login-form">
+      <div class="login-logo">
+        <a href="../../index2.html"><b>SISTEMA DE TRAMITES </b>UNIAJC</a>
+      </div>
+      <!-- /.login-logo -->
+      <div class="card">
+        <div class="card-body login-card-body">
+          <p class="login-box-msg" href="#">Iniciar sesión</p>
+
+          <form #f="ngForm" novalidate (ngSubmit)="onLogin()">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Nombre de usuario" [(ngModel)]="nombreUsuario" name="nombreUsuario" required>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope" style="color: rgb(48, 37, 37);"></span>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" class="form-control" placeholder="Contraseña" name="password" id="password" [(ngModel)]="password" required>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-lock" style="color: rgb(48, 37, 37);"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">
+                <div class="icheck-primary">
+                  <input type="checkbox" id="remember" [(ngModel)]="recordarUsuario" name="recordarUsuario">
+                  <label for="remember" class="ml-2">
+                    <a href="#" class="ml-2">Recordarme</a>
+                  </label>
+                </div>
+              </div>
+              <div class="col-4">
+                <button type="submit" class="btn btn-outline-secondary btn-block" [disabled]="!f.valid">
+                  Iniciar</button>
+              </div>
+            </div>
+          </form>
+
+          <div class="social-auth-links text-center mb-3 " id="my-signin2">
+          </div>
+
+          <p class="mb-1">
+            <a routerLink="/recuperar-contrasena" class="link-pass">Recordar Contraseñasss</a>
+          </p>
+
+          <p class="mb-0">
+            <a routerLink="/registro" class="text-center link-reg cursor">Regístrate aquí estudiante Unicamacho</a>
+          </p>
+        </div>
+        <!-- /.login-card-body -->
+      </div>
+    </div>
+    <!-- /.login-form -->
+  </div>
+  <!-- /.login-box -->
+</div>

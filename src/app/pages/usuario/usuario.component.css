@@ -1,0 +1,29 @@
+.mi-tabla-colorida {
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  font-size: 14px;
+  width: 100%;
+}
+
+.mi-tabla-colorida thead {
+  background-color: #0067b3;
+  color: #fff;
+  font-weight: bold;
+}
+
+.mi-tabla-colorida th,
+.mi-tabla-colorida td {
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #e5e5e5;
+}
+
+.mi-tabla-colorida tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.mi-tabla-colorida tbody tr:hover {
+  background-color: #eaf6ff;
+}
+

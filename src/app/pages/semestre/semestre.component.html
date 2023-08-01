@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Mis Asignaturas</h3>
+      </div>
+      <div class="card-body">
+        <table #tablaAsignaciones class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Asignatura</th>
+              <th>Semestre</th>
+              <th>Creditos</th>
+              <th>Fecha de Asignación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let asignacion of asignacionesRealizadas">
+              <td [style.background-color]="asignacion.asignatura.obligatoria ? '#ffcccc' : ''">{{ asignacion.asignatura.nombre }}</td>
+              <td [style.background-color]="asignacion.asignatura.cargaHoraria > 4 ? '#ffffcc' : ''">{{ asignacion.asignatura.semestre }}</td>
+              <td>{{ asignacion.asignatura.creditos }}</td>
+              <td>{{ asignacion.fecha | date:'medium' }}</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">
+                <button type="button" class="btn btn-primary" (click)="Imprimir()">Imprimir</button>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

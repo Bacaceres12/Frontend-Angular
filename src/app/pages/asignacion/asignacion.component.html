@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Asignaturas</h3>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Ubicacion Semestral</th>
+              <th>Horario</th>
+              <th>Descripcion</th>
+              <th>Creditos</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let asignatura of asignaturasDisponibles">
+              <td>{{ asignatura.nombre }}</td>
+              <td>{{ asignatura.semestre }}</td>
+              <td>{{ asignatura.horario }}</td>
+              <td>{{ asignatura.descripcion }}</td>
+              <td>{{ asignatura.creditos }}</td>
+              <td>
+                <button class="btn btn-primary" (click)="asignar(asignatura.id, semestre)">Asignar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+

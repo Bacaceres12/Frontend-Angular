@@ -1,0 +1,117 @@
+<div *ngIf="TokenService.isAdmin()">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center">Bienvenido Administrador al sistema de trámites y consultas de la Universidad Antonio José Camacho.</h1>
+      <hr class="my-4">
+    </div>
+  </div>
+</div>
+</div>
+
+  <div class="row">
+    <div class="col-md-4 col-sm-6 col-12" *ngIf="!TokenService.isDirector()">
+      <div class="info-box">
+        <span class="info-box-icon bg-info"><i class="far fa-calendar-alt"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Calendario Académico</span>
+          <span class="info-box-number"><a routerLink="/dashboard/calendario">Ver Calendario</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-12" *ngIf="!TokenService.isDirector()">
+      <div class="info-box">
+        <span class="info-box-icon bg-success"><i class="fas fa-book"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Mis Asignaturas</span>
+          <span class="info-box-number"><a routerLink="/dashboard/semestre">Ver Asignaturas</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-12" *ngIf="!TokenService.isDirector()">
+      <div class="info-box">
+        <span class="info-box-icon bg-warning"><i class="fas fa-user-graduate"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Mi Perfil</span>
+          <span class="info-box-number"><a routerLink="/perfil">Ver Perfil</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="container" *ngIf="!TokenService.isAdmin()">
+  <div id="welcome-jumbotron" class="jumbotron">
+    <div class="text-white welcome-message">
+      <h1 class="mb-3 text-black">Hola, {{nombreUsuario ? nombreUsuario : 'Bienvenido' }}!</h1>
+      <p class="lead text-black" *ngIf="!TokenService.isDirector()">Bienvenido al sistema de trámites y consultas de la Universidad Antonio José Camacho.</p>
+      <div *ngIf="TokenService.isDirector()" p class="lead text-black">Bienvenido Director al sistema</div>
+      <hr class="my-4">
+      <p>Este es tu espacio.</p>
+      <a class="btn btn-primary" href="https://www.uniajc.edu.co/" role="button">Mas informacion</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Ultimas Noticias</h3>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled">
+          <li class="media">
+            <a href="https://www.uniajc.edu.co/publicacion-resultados-de-la-convocatoria-sostenimiento/">
+              <img class="mr-3 img-thumbnail" src="https://www.uniajc.edu.co/wp-content/uploads/2022/10/BANNER-WEB.jpg" alt="Nueva noticia 1">
+            </a>
+          </li>
+          <li class="media">
+            <a href="https://www.uniajc.edu.co/candidatos-habilitados-elecciones-uniajc-2023/">
+              <img class="mr-3 img-thumbnail" src="https://www.uniajc.edu.co/wp-content/uploads/2023/04/20230306-UNICAMACHO-Elecciones-2023_Banner-Noticia.png"
+              alt="Nueva noticia 1">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Eventos</h3>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled">
+          <li class="media">
+            <img class="mr-3 img-thumbnail" src="https://via.placeholder.com/64x64?text=Evento+1" alt="Evento 1">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">Evento 1</h5>
+              <p>Descripción del evento 1.</p>
+            </div>
+          </li>
+          <li class="media">
+            <img class="mr-3 img-thumbnail" src="https://via.placeholder.com/64x64?text=Evento+2" alt="Evento 2">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">Evento 2</h5>
+              <p>Descripción del evento 2.</p>
+            </div>
+          </li>
+          <li class="media">
+            <img class="mr-3 img-thumbnail" src="https://via.placeholder.com/64x64?text=Evento+3" alt="Evento 3">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">Evento 3</h5>
+              <p>Descripción del evento 3.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+

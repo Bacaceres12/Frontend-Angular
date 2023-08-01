@@ -1,0 +1,9 @@
+.tabla-tramites {
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+}
+
+.tabla-tramites th {
+  background-color: #333;
+  color: #fff;
+}

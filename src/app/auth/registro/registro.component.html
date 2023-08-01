@@ -1,0 +1,129 @@
+<div class="hold-transition register-page">
+  <div class="register-box">
+    <div class="register-image"></div>
+
+    <div class="register-form">
+      <div class="card ">
+        <div class="card-body register-card-body">
+          <p class="login-box-msg">Registrarse</p>
+
+        <form #f="ngForm" novalidate (ngSubmit)="onRegister()">
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre" autocomplete="off"
+            [(ngModel)]="nombre">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user" style="color: rgb(48, 37, 37);"></span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Nombre de Usuario" name="nombreUsuario" id="nombreUsuario" autocomplete="off"
+            required [(ngModel)]="nombreUsuario">
+            <div class="input-group-append">
+              <div class="input-group-text">
+
+                <span class="fas fa-user-circle" style="color: rgb(48, 37, 37);"></span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Correo" name="correo" id="correo" autocomplete="off" required
+            [(ngModel)]="correo">
+            <div class="input-group-append">
+              <div class="input-group-text">
+
+                <span class="fas fa-envelope" style="color: rgb(48, 37, 37);"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Contraseña" name="password" id="password" required
+            [(ngModel)]="password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+
+                <span class="fas fa-lock" style="color: rgb(48, 37, 37);;"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="tel" class="form-control" placeholder="Telefono"  name="tel" id="tel" autocomplete="off" required [(ngModel)]="tel">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-phone-alt" style="color: rgb(48, 37, 37);"></span>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="input-group mb-3">
+            <select class="form-control" name="Programa" id="Programa" [(ngModel)]="programa" required>
+              <option value="" disabled selected>Selecciona un programa</option>
+              <option value="Tecnologia Sistemas">Tecnologia Sistemas</option>
+              <option value="Ingenieria Sistemas">Ingenieria Sistemas</option>
+              <option value="Informatica">Informatica</option>
+            </select>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-university" style="color: rgb(48, 37, 37);"></span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="input-group mb-3">
+            <select class="form-control" name="jornada" id="jornada" [(ngModel)]="jornada" required>
+              <option value="" disabled selected>Selecciona una Jornada</option>
+              <option value="Diurno">Diurno</option>
+              <option value="Nocturno">Nocturno</option>
+              <option value="Sabatino">Sabatino</option>
+            </select>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="far fa-hourglass" style="color: rgb(48, 37, 37);"></span>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                <input type="checkbox" id="agreeTerms" name="terms" [(ngModel)]="termsAccepted" required>
+                <label for="agreeTerms">
+                  <a href="#" class="ml-2" #acceptTermsLink (click)="acceptTerms()">Acepto los términos</a>
+                </label>
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+              <button type="submit" class="btn btn-outline-secondary btn-block" [disabled]="!f.valid || !termsAccepted">Registrar</button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+
+        <div class="social-auth-links text-center">
+          <hr>
+          <button class="btn btn-block btn-outline-secondary" asGoogleLoginButton (success)="signInWithGoogle($event)">
+            <i class="fab fa-google-plus mr-2"></i> Inicia sesion con Google
+          </button>
+
+        </div>
+        <a routerLink="/login" class="text-center link-reg">Ya tengo una cuenta</a>
+      </div>
+      <!-- /.form-box -->
+    </div><!-- /.card -->
+  </div>
+  <!-- /.register-box -->
+</div>

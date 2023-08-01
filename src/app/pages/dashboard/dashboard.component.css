@@ -1,0 +1,29 @@
+
+   body{
+      background-image: url("../../../assets/dist/img/8.png");
+      background-repeat: no-repeat, repeat;
+      background-position: center; /* Center the image */
+      background-size: contain; /* Resize the background image to cover the entire container */
+      background-repeat: no-repeat;
+      padding-top: 50px;
+    }
+
+   .jumbotron{
+      background-image: url("../../../assets/dist/img/8.png");
+      background-repeat: no-repeat, repeat;
+      background-position: center; /* Center the image */
+      background-size: cover; /* Resize the background image to cover the entire container */
+      padding-top: 50px;
+      font-weight: bold;
+      margin-top: 50px;
+      margin-bottom: 100px;
+      padding: 100px;
+      border-radius: 50px;
+      box-shadow: 10px 10px 5px 0px rgba(2, 53, 206, 0.75);
+    }
+    .welcome-message {
+      max-width: 700px;
+      color: rgba(1, 0, 2, 0.529);
+      margin: 0 auto;
+      text-align: center;
+    }

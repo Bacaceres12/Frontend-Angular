@@ -1,0 +1,63 @@
+.login-page {
+  background-image: url('../../../assets/dist/img/xd.png');
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  max-width: 900px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+}
+
+.login-image {
+  flex: 1;
+  box-sizing: border-box;
+  background-image: url('../../../assets/dist/img/Uniajcpost.png');
+  background-position: center center;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+}
+
+.login-form {
+  flex: 1;
+  padding: 20px;
+  background-color: #d6d6d6;
+}
+
+.login-card-body {
+  color: black;
+}
+
+.login-box,
+a {
+  color: black;
+}
+
+.social-auth-links,
+a {
+  color: black;
+}
+
+.link-pass {
+  color: black;
+}
+
+.link-reg {
+  color: black;
+  text-decoration: none;
+}
+
+.link-reg:hover {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}

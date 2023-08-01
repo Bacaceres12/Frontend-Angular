@@ -1,0 +1,85 @@
+<div *ngIf="tokenService.isDirector()">
+  <table class="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Estado</th>
+        <th>Respuesta</th>
+        <th>Nombre</th>
+        <th>Tipo de solicitud</th>
+        <th>Cedula</th>
+        <th>Jornada</th>
+        <th>FechaCita</th>
+        <th>Acciones</th> <!-- Agregar la columna de acciones -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let consulta of consultas">
+        <td>{{ consulta.fechaConsulta }}</td>
+        <td>{{ consulta.estado }}</td>
+        <td>{{ consulta.Respuesta }}</td>
+        <td>{{ consulta.tramitesEntity.nombre }}</td>
+        <td>{{ consulta.tramitesEntity.tiposol }}</td>
+        <td>{{ consulta.tramitesEntity.cc }}</td>
+        <td>{{ consulta.tramitesEntity.jornada }}</td>
+        <td>{{ consulta.tramitesEntity.fecha}}</td>
+        <td> <!-- Agregar el botón de actualizar -->
+          <button class="btn btn-primary" (click)="actualizarConsulta(consulta)">Actualizar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="!tokenService.isDirector()" class="card">
+  <div class="card-header">
+    <h3 class="card-title">Búsqueda de trámites</h3>
+  </div>
+
+  <div class="card-body">
+    <div class="form-group">
+      <label for="numerosd">Número de trámite:</label>
+      <input type="text" class="form-control" id="numerosd" name="numerosd">
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <button type="button" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#busquedaModal">
+          Abrir búsqueda
+        </button>
+      </div>
+      <div class="col-6">
+        <button type="button" class="btn btn-primary btn-block mb-2" (click)="descargarConsulta()">
+          Descargar PDF
+        </button>
+      </div>
+    </div>
+
+    <div id="detalleConsulta"></div>
+    <div class="form-group">
+      <div id="visualization"></div>
+    </div>
+
+    <!-- Modal de búsqueda -->
+    <div class="modal fade" id="busquedaModal" tabindex="-1" role="dialog" aria-labelledby="busquedaModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="busquedaModalLabel">Búsqueda de trámites</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="numerosd">Número de trámite:</label>
+              <input type="text" class="form-control" id="numerosd" name="numerosd">
+            </div>
+            <button type="button" class="btn btn-primary" (click)="buscarConsulta()">Buscar</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

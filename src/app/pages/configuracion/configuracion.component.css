@@ -1,0 +1,118 @@
+/* Tema por defecto */
+:root[data-theme='default'] {
+  --background-color: #ffffff;
+  --text-color: #333333;
+}
+
+/* Tema oscuro */
+:root[data-theme='dark'] {
+  --background-color: #333333;
+  --text-color: #ffffff;
+}
+
+/* Estilos generales */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+
+
+.navbar.bg-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.navbar.bg-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.navbar.bg-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.navbar.bg-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.navbar.bg-warning {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.navbar.bg-info {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+.navbar.bg-light {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+.navbar.bg-dark {
+  background-color: #343a40;
+  color: #fff;
+}
+
+
+.sidebar-dark {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+.sidebar-olive {
+  background-color: #3c8dbc;
+  color: #ffffff;
+}
+
+.sidebar-red {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+.sidebar-light-blue {
+  background-color: var(--color-light-blue);
+  color: #fff;
+}
+
+
+/* Tema por defecto */
+:root[data-theme='default'] {
+  --background-color: #ffffff;
+  --text-color: #333333;
+}
+
+/* Tema oscuro */
+:root[data-theme='dark'] {
+  --background-color: #333333;
+  --text-color: #ffffff;
+}
+
+/* Estilos generales */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Estilos de fondo */
+.bg-dark {
+  background-color: #343a40 !important;
+}
+
+
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.btn-primary {
+  margin-right: 10px;
+}

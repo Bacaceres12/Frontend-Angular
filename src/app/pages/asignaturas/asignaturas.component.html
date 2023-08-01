@@ -1,0 +1,51 @@
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Lista de Asignaturas</h3>
+  </div>
+  <div class="card-body">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Nombre de la asignatura" [(ngModel)]="nombre">
+    </div>
+    <div class="form-group">
+      <input type="number" class="form-control" placeholder="Semestre" [(ngModel)]="semestre">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Horario" [(ngModel)]="horario">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Descripción" [(ngModel)]="descripcion">
+    </div>
+    <div class="form-group">
+      <input type="number" class="form-control" placeholder="Créditos" [(ngModel)]="creditos">
+    </div>
+    <button type="button" class="btn btn-primary" (click)="crearAsignatura(nombre, semestre, horario, descripcion, creditos)">Crear Asignatura</button>
+    <hr>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Semestre</th>
+          <th>Horario</th>
+          <th>Descripción</th>
+          <th>Créditos</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let asignatura of asignaturas">
+          <td>{{ asignatura.id }}</td>
+          <td>{{ asignatura.nombre }}</td>
+          <td>{{ asignatura.semestre }}</td>
+          <td>{{ asignatura.horario }}</td>
+          <td>{{ asignatura.descripcion }}</td>
+          <td>{{ asignatura.creditos }}</td>
+          <td>
+            <button type="button" class="btn btn-warning" (click)="actualizarAsignatura(asignatura.id, nombre)">Editar</button>
+            <button type="button" class="btn btn-danger" (click)="eliminarAsignatura(asignatura.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="card-body">
+  <ng-container *ngIf="tramite; else noTramites">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="tabla-tramites row-border hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>cc</th>
+          <th>Nombre</th>
+          <th>jornada</th>
+          <th>numero de tramite</th>
+          <th>carrera</th>
+          <th>tipo de solicitud</th>
+          <th>fecha</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="tramite.length === 0; else showTramites">
+          <tr>
+            <td colspan="9">
+              <button class="btn btn-outline-primary btn-sm" routerLink="/dashboard/tramites">Realizar Tramite</button>
+            </td>
+          </tr>
+        </ng-container>
+        <ng-template #showTramites>
+          <tr *ngFor="let tramite of tramite; let i = index;">
+            <td>
+              <button class="btn btn-outline-primary btn-sm" routerLink="/dashboard/tramites">Realizar Tramite</button>
+            </td>
+            <td>{{ tramite.cc }}</td>
+            <td>{{ tramite.nombre }}</td>
+            <td>{{ tramite.jornada }}</td>
+            <td>{{ tramite.numerosd }}</td>
+            <td>{{ tramite.carrera }}</td>
+            <td>{{ tramite.tiposol }}</td>
+            <td>{{ tramite.fecha}}</td>
+            <td>
+              <button class="btn btn-outline-primary btn-sm" (click)="editTramite(tramite)"><i class="far fa-edit"></i>Editar</button>
+              <button class="btn btn-outline-danger btn-sm" (click)="borrar(tramite.idSolicitud)">
+                <i class="far fa-trash-alt"></i> Eliminar
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-template #noTramites>
+    <p>No hay tramites disponibles</p>
+  </ng-template>
+</div>
+
+

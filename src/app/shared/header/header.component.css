@@ -1,0 +1,36 @@
+.pf-c-card {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  box-shadow: 0 3px 6px #00000029, 0 3px 6px #0000003b !important;
+  border-radius: 4px;
+}
+
+.pf-c-card__body {
+  padding: 1rem;
+}
+
+.pf-c-card__header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.pf-c-avatar {
+  height: 90px;
+  width: 90px;
+  border: 3px solid transparent;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.pf-c-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.pf-c-button {
+  margin-top: 1rem;
+}

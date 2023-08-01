@@ -1,0 +1,25 @@
+#tablaConsultas {
+  background-color: #F0F0F0;
+  border: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  width: 100%;
+}
+
+#tablaConsultas th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#tablaConsultas td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#tablaConsultas tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#tablaConsultas tr:hover {
+  background-color: #ddd;
+}

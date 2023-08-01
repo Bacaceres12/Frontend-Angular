@@ -1,0 +1,61 @@
+.register-page {
+  background-image: url('../../../assets/dist/img/xd2.png');
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  opacity: 0.8;
+}
+
+.register-box {
+  max-width: 900px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  color: white;
+}
+
+.register-image {
+  flex: 1;
+  box-sizing: border-box;
+  background-image: url('../../../assets/dist/img/44.png');
+  background-position: center center;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+}
+
+.register-form {
+  flex: 1;
+  padding: 20px;
+  background-color: #f5f5f5; /* cambia el color de fondo */
+}
+
+.register-card-body {
+  color: black;
+}
+
+.register-box,
+a {
+  color: black;
+}
+
+.social-auth-links,
+a {
+  color: black;
+}
+
+.link-reg {
+  color: black;
+  text-decoration: none;
+}
+
+.link-reg:hover {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}

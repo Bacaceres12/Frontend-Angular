@@ -1,0 +1,92 @@
+
+<div class="container">
+    <div class="row my-5 ml-5">
+      <div class="col-4">
+        <img class="center-block img-responsive" src="../../assets/UNIAJC.png" [style.height.px]="120"
+          [style.margin.px]="2">
+      </div>
+      <div class="col-8">
+        <p class="text-center card-text">PROCESO DE TRAMITES PARA ESTUDIANTES DE LA UNIAJC</p>
+        <p class="text-center card-text">UNIAJC SGT</p>
+      </div>
+    </div>
+
+    <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+      <div class="card mb-5 mx-5 shadow-lg">
+        <div class="card-header text-white">
+          <p class="font-weight-bold text-center" [style.font-size.px]="20">Informacion de solicitantes</p>
+        </div>
+        <div class="card-body px-5 py-5">
+          <div class="row">
+            <div class="col-md-4 mb-3 form-group">
+              <label for="cc" class="col-form-label"><b>Número de identificacion:</b></label>
+              <input id="cc" type="number" class="form-control" name="cc" [(ngModel)]="cc" required autocomplete="off">
+            </div>
+
+            <div class="col-md-4 mb-3 form-group">
+              <label for="nombre" class="col-form-label"><b>Nombre:</b> </label>
+              <input id="nombre" type="text" class="form-control" type="text" name="nombre" [(ngModel)]="nombre"
+                required autocomplete="off">
+            </div>
+
+            <div class="col-md-4 mb-3 form-group">
+              <label for="jornada" class="col-form-label"><b>Jornada:</b> </label>
+              <select id="jornada" class="form-control" name="jornada" [(ngModel)]="jornada" required>
+                <option value="Diurno">Diurna</option>
+                <option value="Nocturno">Nocturno</option>
+                <option value="Sabatino">Sabatino</option>
+              </select>
+            </div>
+
+            <div class="col-md-4 mb-3 form-group">
+              <label for="carrera" class="col-form-label"><b>Carrera:</b> </label>
+              <select id="carrera" class="form-control" name="carrera" [(ngModel)]="carrera" required>
+                <option value="Tecnología en sistemas">Tecnología sistemas</option>
+                <option value="Tecnología electronica">Tecnología electrónica</option>
+                <option value="Ingeniería sistemas">Ingeniería sistemas</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-5 mx-5 shadow-lg">
+        <div class="card-header text-white">
+          <p class="font-weight-bold text-center" [style.font-size.px]="20">Informacion de solicitud</p>
+        </div>
+        <div class="card-body px-5 py-5">
+          <div class="row">
+            <div class="col-md-4 mb-3 form-group">
+              <label class="col-form-label"><b>Tipo de solicitud:</b></label>
+              <select class="form-control" name="tiposol" [(ngModel)]="tiposol" required autocomplete="off"
+                (ngModelChange)="onTiposolChange()">
+                <option disabled selected hidden>Seleccione el tipo...</option>
+                <option *ngFor="let solicitudes of Solicitud">{{solicitudes.nombre}}</option>
+              </select>
+            </div>
+
+            <div class="form-group col-4 mb-3" *ngIf="tiposol === 'Cita con el director'">
+              <label for="fechaConsulta" class="col-form-label"><b>Fecha:</b></label>
+              <input id="fechaConsulta" type="date" class="form-control" name="fechaConsulta"
+                [(ngModel)]="fechaConsulta" [required]="mostrarFecha" autocomplete="off">
+            </div>
+
+            <div class="form-group col-4 mb-3" *ngIf="tiposol === 'Cancelacion Asignatura' || tiposol === 'Adicionar Asignatura'">
+              <label for="asignatura" class="col-form-label"><b>Nombre de la Asignatura:</b></label>
+              <input id="asignatura" type="text" class="form-control" name="asignatura"
+                [(ngModel)]="asignatura" autocomplete="off">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <div class="offset-md-1 mb-5">
+          <button class="btn btn-success mr-3" style="width:200px;" routerLink="/dashboard/tramites">
+            Enviar Solicitud
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>

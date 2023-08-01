@@ -1,0 +1,54 @@
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <a data-toggle="collapse" href="#configuracion" aria-expanded="false" aria-controls="configuracion" class="text-dark">
+              Configuración de la plantilla
+          </a>
+          </div>
+          <div class="collapse" id="configuracion">
+            <div class="card-body">
+              <div class="form-group">
+                <label for="navbarColor">Color del navbar:</label>
+                <div class="btn-group" role="group" aria-label="Color del navbar">
+                  <button type="button" class="btn btn-primary" (click)="cambiarColorNavbar('bg-primary')">Primary</button>
+                  <button type="button" class="btn btn-secondary" (click)="cambiarColorNavbar('bg-secondary')">Secondary</button>
+                  <button type="button" class="btn btn-success" (click)="cambiarColorNavbar('bg-success')">Success</button>
+                  <button type="button" class="btn btn-danger" (click)="cambiarColorNavbar('bg-danger')">Danger</button>
+                  <button type="button" class="btn btn-warning" (click)="cambiarColorNavbar('bg-warning')">Warning</button>
+                  <button type="button" class="btn btn-info" (click)="cambiarColorNavbar('bg-info')">Info</button>
+                  <button type="button" class="btn btn-light" (click)="cambiarColorNavbar('bg-light')">Light</button>
+                  <button type="button" class="btn btn-dark" (click)="cambiarColorNavbar('bg-dark')">Dark</button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="sidebarVariante">Barra lateral:</label>
+                <div class="btn-group" role="group" aria-label="Barra lateral">
+                  <button type="button" class="btn btn-secondary" (click)="cambiarSidebarVariante('dark')">Oscura</button>
+                  <button type="button" class="btn btn-light" (click)="cambiarSidebarVariante('light')">Clara</button>
+                  <button type="button" class="btn btn-success" (click)="cambiarSidebarVariante('olive')">Oliva</button>
+                  <button type="button" class="btn btn-danger" (click)="cambiarSidebarVariante('red')">Red</button>
+                  <button type="button" class="btn btn-info" (click)="cambiarSidebarVariante('sidebar-light-blue')">Light</button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="theme">Fondo:</label>
+                <div class="btn-group" role="group" aria-label="Fondo">
+                  <button type="button" class="btn btn-light" (click)="setTheme('default')">Claro</button>
+                  <button type="button" class="btn btn-dark" (click)="setTheme('dark')">Oscuro</button>
+                </div>
+              </div>
+              <button (click)="toggleDarkMode()">Toggle Dark Mode</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
