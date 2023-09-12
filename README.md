@@ -1,11 +1,18 @@
 # Proyectotramites
 
-Para iniciar sesion con director y administrador
+Para iniciar sesion con director y administrador u usuario normal
+
+Usuario: Michael
+password: 123456
+
 usuario: director
 password: 123456
 
 usuario: admin
 password: 123456
+
+Enlace del aplicacion deplegada en firebase: 
+https://angular-b6b47.web.app/login
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
