@@ -1,5 +1,12 @@
 # Proyectotramites
 
+Para iniciar sesion con director y administrador
+usuario: director
+password: 123456
+
+usuario: admin
+password: 123456
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
 ## Development server
