@@ -13,6 +13,8 @@ export class Consulta{
   fechaConsulta: Date;
   tramitesEntity: Tramites;
   consultaEntity: Consulta;
+  horaAprobacion?: Date;
+
   constructor(fechaConsulta:Date){
 
 

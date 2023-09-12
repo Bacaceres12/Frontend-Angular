@@ -4,6 +4,7 @@ import { UsuariosService } from './../../services/usuarios.service';
 import { Usuario } from './../../models/usuario';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Rol } from 'src/app/models/rol';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-usuario',
@@ -18,26 +19,36 @@ export class UsuarioComponent implements OnInit, OnDestroy {
   usuarioId: number;
   roles: Rol[] = [];
   rolesDisponibles: Rol[];
+  usuarioLogueado: Usuario;
 
-  constructor(private usuariosService: UsuariosService) { }
+  constructor(private usuariosService: UsuariosService,
+    private tokenService: TokenService
 
-  ngOnInit(): void {
-    this.dtOptions = {
-      pageLength: 10,
-      searching: true,
-      responsive: true,
-      info: true,
-      language: { url: '//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json' }
-    };
+    ) { }
 
-    this.usuariosService.getAll().subscribe(
-      usuarios => {
-        this.usuarios = usuarios;
-        this.dtTrigger.next();
-      },
-      error => console.log(error)
-    );
-  }
+    ngOnInit(): void {
+      this.dtOptions = {
+        pageLength: 10,
+        searching: true,
+        responsive: true,
+        info: true,
+        language: { url: '//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json' }
+      };
+
+      const usuarioLogueadoId = this.tokenService.getIdUsuario();
+
+      if (usuarioLogueadoId !== null) {
+        this.usuariosService.getAll().subscribe(
+          usuarios => {
+            this.usuarios = usuarios.filter(usuario => usuario.id !== usuarioLogueadoId || !this.tokenService.isAdmin());
+            this.dtTrigger.next();
+          },
+          error => console.log(error)
+        );
+      } else {
+        console.warn('Usuario logueado no definido.');
+      }
+    }
 
 
   ngOnDestroy(): void {

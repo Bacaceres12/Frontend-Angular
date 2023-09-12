@@ -41,14 +41,26 @@
     </li>
 
 
-    <!-- Notificaciones Dropdown Menu -->
-    <li class="nav-item dropdown" *ngIf="!tokenService.isDirector()">
-      <a class="nav-link" data-toggle="dropdown" href="#">
-        <i class="far fa-bell"></i>
-        <span class="badge badge-warning navbar-badge">{{ notificationCount }}</span>
-      </a>
-      <!-- ... Código del dropdown de notificaciones ... -->
-    </li>
+ <!-- ... Otras partes del encabezado ... -->
+
+<li class="nav-item dropdown" *ngIf="tokenService.isUser()">
+  <a class="nav-link" data-toggle="dropdown" href="#">
+    <i class="far fa-bell"></i>
+    <span class="badge badge-warning navbar-badge">{{ notificationCount }}</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+    <span class="dropdown-item dropdown-header">{{ notificationCount }} Notificaciones</span>
+    <div class="dropdown-divider"></div>
+    <a *ngFor="let notification of notifications; let i = index" class="dropdown-item custom-notification" href="#">
+      {{ notification }}
+    </a>
+    <a href="#" class="dropdown-item dropdown-footer">Ver todas las notificaciones</a>
+  </div>
+</li>
+
+<!-- ... Otras partes del encabezado ... -->
+
+
 
   </ul>
 </nav>

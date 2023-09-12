@@ -1,0 +1,90 @@
+/* calendario-d.component.css */
+
+/* Estilos para los eventos */
+.fc-event-team {
+  background-color: #4D4D4D;
+  border-color: #4D4D4D;
+  color: #FFFFFF;
+}
+
+/* Estilos para la barra de herramientas */
+.fc-toolbar {
+  background-color: #0078d4;
+}
+
+/* Cambiar el color del texto en el header */
+.fc-toolbar h2 {
+  color: #fff;
+}
+
+/* Cambiar el color de fondo de las celdas de fecha */
+.fc-day {
+  background-color: #f3f3f3;
+}
+
+/* Cambiar el color de fondo de las celdas de fecha cuando se les hace hover */
+.fc-day:hover {
+  background-color: #e5e5e5;
+}
+
+/* Cambiar el color de fondo de las celdas de fecha seleccionadas */
+.fc-day.fc-day-selected {
+  background-color: #0078d4;
+  color: #fff;
+}
+
+/* Cambiar el color de fondo de los eventos */
+.fc-event {
+  background-color: #0078d4;
+  border-color: #0078d4;
+  color: #fff;
+}
+
+/* Cambiar el color de fondo de los eventos cuando se les hace hover */
+.fc-event:hover {
+  background-color: #005a9e;
+  border-color: #005a9e;
+}
+
+/* Cambiar el color del texto en los eventos */
+.fc-event-title {
+  color: #fff;
+}
+
+/* Cambiar el color de fondo de la lista de eventos */
+.fc-list-day-side {
+  background-color: #f3f3f3;
+}
+
+/* Cambiar el color de fondo de los días de la semana en la vista de agenda */
+.fc-agenda-slots th {
+  background-color: #0078d4;
+  color: #fff;
+}
+
+/* Estilos para los eventos en el día */
+.fc-event-note {
+  padding: 5px;
+  background-color: #e2860d;
+  border: 1px solid #130806;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.fc-event-note .fc-event-time {
+  font-size: 12px;
+  color: white;
+}
+
+.fc-event-note .fc-event-title {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.fc-event-note .fc-event-title-descripcion {
+  font-weight: bold;
+  margin-top: 5px;
+}

@@ -7,37 +7,27 @@ import { Consulta } from '../models/consulta';
 })
 export class NotificationService {
 
-  private notificationCount = 0;
-  private notificationCountSource = new Subject<number>();
-  private consultaActualizadaSource = new Subject<Consulta>();
-  private ultimaConsultaActualizada: Consulta; // Nueva propiedad
-  consultaActualizada$ = this.consultaActualizadaSource.asObservable()
-  notificationCount$ = this.notificationCountSource.asObservable();
+  private notificationSubject = new Subject<string>();
+  private notifications: string[] = []; // Agrega esta lista
+  private userTramiteNotifications: { [userId: number]: { [tramiteId: number]: Notification[] } } = {};
 
-  constructor() { }
 
-  actualizarConsulta(consulta: Consulta) {
-    // Aquí iría la lógica para actualizar la consulta
+  constructor() {}
 
-    // Emitimos la notificación al menú
-    this.notificationCount++;
-    this.notificationCountSource.next(this.notificationCount);
-
-    // Almacenamos la última consulta actualizada
-    this.ultimaConsultaActualizada = consulta;
-
-    // Emitimos la consulta actualizada
-    this.consultaActualizadaSource.next(consulta);
-
+  sendNotification(message: string) {
+    console.log('Sending notification:', message);
+    this.notificationSubject.next(message);
+    this.notifications.push(message); // Almacena la notificación en la lista
 
   }
 
-  obtenerUltimaConsultaActualizada(): Consulta {
-    return this.ultimaConsultaActualizada;
+
+
+  getNotificationObservable() {
+    return this.notificationSubject.asObservable();
   }
 
-  enviarNotificacion(consulta: Consulta) {
-    this.consultaActualizadaSource.next(consulta);
+  getNotifications(): string[] {
+    return this.notifications;
   }
-
 }

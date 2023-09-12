@@ -24,23 +24,26 @@ export class HeaderComponent implements OnInit {
      public tokenService: TokenService
     ) { }
 
-    ngOnInit(): void {
-      // Suscribirse a la propiedad consultaActualizada$
-      this.notificationService.consultaActualizada$.subscribe((notification: any) => {
-        this.notificationCount++;
-        this.addNotification(notification);
-        this.toastr.info(`La consulta "${notification.estado}" ha sido actualizada por el Director.`);
-        this.nombreUsuario = this.tokenService.getNombreUsuario();
-      });
+    ngOnInit() {
+      // Solo los usuarios normales deberían recibir notificaciones
+      if (this.tokenService.isUser()) {
+        this.notifications = this.notificationService.getNotifications();
+        this.notificationCount = this.notifications.length;
+        // Escucha las nuevas notificaciones
+        this.notificationService.getNotificationObservable().subscribe(message => {
+          // Agrega la notificación a la lista y actualiza el contador
+          this.notifications.push(message);
+          this.notificationCount++;
+
+        });
+
+      }
+
     }
+
+
 
     logOut(): void {
       this.tokenService.logOut();
     }
-
-    addNotification(notification: any) {
-      this.notifications.push(notification); // Agregar la notificación a la nueva variable de tipo arreglo
-    }
-
-
 }

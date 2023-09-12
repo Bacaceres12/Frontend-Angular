@@ -1,15 +1,16 @@
-
+/* Cambiar el estilo de los eventos */
 ::ng-deep .fc-event-team {
   background-color: #4D4D4D;
   border-color: #4D4D4D;
   color: #FFFFFF;
 }
 
+/* Cambiar el estilo de la barra de herramientas */
 ::ng-deep .fc-toolbar {
-  background-color: #0078d4;
+  background-color: #04d400;
 }
 
-/* Cambiar el color del texto en el header */
+/* Cambiar el color del texto en el encabezado */
 ::ng-deep .fc-toolbar h2 {
   color: #fff;
 }
@@ -59,7 +60,7 @@
   color: #fff;
 }
 
-
+/* Cambiar el estilo de la nota del evento */
 ::ng-deep .fc-event-note {
   padding: 5px;
   background-color: #e2860d;
@@ -71,17 +72,100 @@
   text-align: center;
 }
 
+/* Cambiar el estilo de la hora en la nota del evento */
 ::ng-deep .fc-event-note .fc-event-time {
   font-size: 12px;
   color: white;
 }
 
+/* Cambiar el estilo del título en la nota del evento */
 ::ng-deep .fc-event-note .fc-event-title {
   font-weight: bold;
   margin-top: 5px;
 }
 
+/* Cambiar el estilo del título de la descripción en la nota del evento */
 ::ng-deep .fc-event-note .fc-event-title-descripcion {
   font-weight: bold;
   margin-top: 5px;
+}
+
+
+/* Estilo para el popover */
+::ng-deep .fc-event-popover {
+  padding: 10px; /* Aumentar el padding para dar más espacio al contenido */
+  background-color: #e2860d;
+  border: 1px solid #130806;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: center;
+  color: white;
+  max-width: 800px; /* Definir un ancho máximo para el popover */
+}
+
+::ng-deep .fc-event-popover .fc-event-time {
+  font-size: 12px;
+}
+
+::ng-deep .fc-event-popover .fc-event-title {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+::ng-deep .fc-event-popover .fc-description {
+  margin-top:5px;
+}
+
+
+.custom-modal .modal-header {
+  background-color: #007bff; /* Color de fondo para el encabezado */
+  color: #fff; /* Color del texto del encabezado */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.custom-modal .modal-title {
+  margin: 0;
+}
+
+.custom-modal .modal-body {
+  padding: 1rem;
+}
+
+/* Agregar un logo al modal */
+.logo-container {
+  text-align: center;
+}
+
+.logo-img {
+  max-width: 100px; /* Tamaño máximo del logo */
+  margin-bottom: 1rem;
+}
+
+/* Personalizar el botón de cerrar */
+.custom-modal .close {
+  color: #fff;
+  opacity: 1;
+}
+
+.custom-modal .close:hover {
+  color: #fff;
+}
+
+/* Cambiar el color del fondo del modal */
+.modal-content {
+  background-color: #f8f9fa; /* Color de fondo del contenido del modal */
+}
+
+/* Cambiar el color del texto dentro del modal */
+.modal-content, .modal-content p {
+  color: #333; /* Color del texto */
+}
+
+
+/* Quitar el borde blanco detrás del modal */
+.modal-dialog {
+  box-shadow: none;
 }

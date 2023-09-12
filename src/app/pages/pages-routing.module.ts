@@ -16,6 +16,8 @@ import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { AsignacionComponent } from './asignacion/asignacion.component';
 import { SemestreComponent } from './semestre/semestre.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { CalendarioDComponent } from './calendario-d/calendario-d.component';
+import { ConsultasDComponent } from './consultas-d/consultas-d.component';
 
 const routes: Routes = [
 
@@ -27,11 +29,13 @@ const routes: Routes = [
     {path:'tramites', component:TramitesComponent, data: {titulo: 'Tramites'}},
     {path:'consultatramites', component: ConsultaTramitesComponent, data:{titulo: 'Tramites'}},
     {path:'consultas', component:ConsultasComponent, data:{ titulo: 'Consultas' }},
+    {path:'consultas-d', component:ConsultasDComponent, data:{ titulo: 'Consultas' }},
     {path:'usuario', component:UsuarioComponent,  data:{ titulo: 'Usuario' }},
-    {path:'versolicitud', component:VerSolicitudComponent, data:{ titulo: 'Versolicitud' }},
+    {path:'versolicitud', component:VerSolicitudComponent, data:{ titulo: 'Estudiantes Tecnologia sistemas' }},
     {path:'asignaturas', component:AsignaturasComponent, data: {titulo: 'asignaturas'}},
     {path:'editar/:id', component:EditarSolicitudComponent},
     {path:'calendario', component:CalendarioComponent, data:{ titulo: 'Calendario'}},
+    {path:'calendario-d', component:CalendarioDComponent, data:{ titulo: 'Calendario'}},
     {path:'configuracion', component:ConfiguracionComponent, data: {titulo:'Configuración'}},
     {path:'estadisticas', component:EstadisticasComponent, data: {titulo:'Estadísticas'}},
     {path:'asignacion', component:AsignacionComponent, data: {titulo:'asignación'}},

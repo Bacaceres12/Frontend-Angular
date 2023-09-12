@@ -1,0 +1,7 @@
+
+/* Estilos personalizados para el color rojo (table-danger) */
+.table-danger {
+  background-color: #ffdddd; /* Cambia el color de fondo */
+  color: #dc3545; /* Cambia el color del texto */
+  /* Agrega otros estilos personalizados si es necesario */
+}

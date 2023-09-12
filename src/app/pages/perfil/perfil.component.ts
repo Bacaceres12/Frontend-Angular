@@ -1,6 +1,7 @@
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { Component } from '@angular/core';
 import { TokenService } from 'src/app/services/token.service';
+import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-perfil',
@@ -13,6 +14,8 @@ export class PerfilComponent {
   public rolUsuario: string;
   public usuariosService: UsuariosService;
   selectedFile: File;
+  usuarios: Usuario[] = [];
+  usuarioActual: Usuario;
 
   imagenUsuario: string = './assets/dist/img/user4-128x128.jpg'; // Ruta de la imagen actual
 
@@ -22,10 +25,25 @@ export class PerfilComponent {
   }
 
   ngOnInit(): void {
+    this.usuariosService.getAll().subscribe(
+      (data) => {
+        this.usuarios = data;
+        this.obtenerUsuarioLogueado(); // Llama a la función para obtener el usuario logueado
+      },
+      (error) => {
+        console.error('Error al obtener usuarios', error);
+      }
+    );
+
     this.nombreUsuario = this.tokenService.getNombreUsuario();
     this.rolUsuario = this.getRolUsuario();
-
   }
+
+  obtenerUsuarioLogueado(): void {
+    const usuarioId = this.tokenService.getIdUsuario(); // Obtén el ID del usuario logueado
+    this.usuarioActual = this.usuarios.find(usuario => usuario.id === usuarioId); // Busca el usuario logueado en la lista
+  }
+
 
   getRolUsuario(): string {
     if (this.tokenService.isAdmin()) {
@@ -55,6 +73,7 @@ export class PerfilComponent {
       (response) => {
         // La foto se ha cargado correctamente
         console.log('Foto cargada exitosamente', response);
+        this.imagenUsuario = `C:/Users/BrayanXD/Desktop/PROYECTO GRADO FINAL/Backend/uploads${response}`; // Construye la URL de la imagen
       },
       (error) => {
         // Ocurrió un error al cargar la foto

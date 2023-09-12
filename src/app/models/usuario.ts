@@ -9,7 +9,7 @@ export class Usuario{
   programa: string;
   password: string;
   roles?: Rol[];
-
+  
        constructor(nombre: string, correo: string, tel: string, jornada: string, programa: string,   password: string
         ){
           this.nombre = nombre;

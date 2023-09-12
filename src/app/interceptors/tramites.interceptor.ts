@@ -39,7 +39,6 @@ export class ProductoInterceptor implements HttpInterceptor {
           return next.handle(intReq);
         }));
       } else {
-        this.tokenService.logOut();
         return throwError(err);
       }
     }));

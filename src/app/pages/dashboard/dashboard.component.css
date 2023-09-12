@@ -13,6 +13,7 @@
       background-repeat: no-repeat, repeat;
       background-position: center; /* Center the image */
       background-size: cover; /* Resize the background image to cover the entire container */
+      animation: jumbotronAnimation 90s infinite;
       padding-top: 50px;
       font-weight: bold;
       margin-top: 50px;
@@ -21,9 +22,69 @@
       border-radius: 50px;
       box-shadow: 10px 10px 5px 0px rgba(2, 53, 206, 0.75);
     }
-    .welcome-message {
-      max-width: 700px;
-      color: rgba(1, 0, 2, 0.529);
-      margin: 0 auto;
-      text-align: center;
+    /* Define la animación */
+@keyframes jumbotronAnimation {
+  0% {
+    background-image: url('../../../assets/dist/img/13.png'); /* Primera imagen de fondo */
+  }
+  25% {
+    background-image: url('../../../assets/dist/img/8.png'); /* Segunda imagen de fondo */
+  }
+  50% {
+    background-image: url('../../../assets/dist/img/x3.png'); /* Tercera imagen de fondo */
+  }
+  75% {
+    background-image: url('../../../assets/dist/img/x4.png'); /* Cuarta imagen de fondo */
+  }
+  100% {
+    background-image: url('../../../assets/dist/img/full.png'); /* Vuelve a la primera imagen */
+  }
+}
+
+.welcome-message {
+  max-width: 700px;
+  color: rgb(216, 216, 227); /* Cambia el color del texto a rojo */
+  margin: 0 auto;
+  text-align: center;
+}
+.highlight-text {
+  text-shadow: 2px 2px 4px rgba(8, 3, 149, 0.788);
+}
+.larger-text {
+  font-size: 20px; /* Cambia el tamaño del texto según tus preferencias */
+}
+
+
+
+
+
+
+    .news-slider {
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
     }
+
+    .news-item {
+      flex: 0 0 auto;
+      width: 300px; /* Ajusta el ancho de cada noticia según tu diseño */
+      margin-right: 20px;
+      animation: scroll 20s linear infinite; /* Ajusta la duración y el estilo de scroll */
+      position: relative;
+    }
+
+    .news-image {
+      width: 100%;
+      height: auto;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+

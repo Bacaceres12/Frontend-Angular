@@ -28,6 +28,14 @@ import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { AsignacionComponent } from './asignacion/asignacion.component';
 import { SemestreComponent } from './semestre/semestre.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { esLocale } from 'ngx-bootstrap/locale';
+import { CalendarioDComponent } from './calendario-d/calendario-d.component';
+import { ConsultasDComponent } from './consultas-d/consultas-d.component'
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+
+defineLocale('es', esLocale);
 
 @NgModule({
   declarations: [
@@ -46,7 +54,9 @@ import { PerfilComponent } from './perfil/perfil.component';
     EstadisticasComponent,
     AsignacionComponent,
     SemestreComponent,
-    PerfilComponent
+    PerfilComponent,
+    CalendarioDComponent,
+    ConsultasDComponent
   ],
 
     exports:[
@@ -72,11 +82,13 @@ import { PerfilComponent } from './perfil/perfil.component';
     FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
+    SlickCarouselModule,
     HttpClientModule,
     FullCalendarModule,
     NgbModule,
     NgbTooltip,
     NgbTooltipModule,
+    BsDatepickerModule.forRoot(),
     RouterModule
   ],
 

@@ -34,3 +34,13 @@
 .pf-c-button {
   margin-top: 1rem;
 }
+
+
+.custom-notification {
+  white-space: normal; /* Permite que el texto ocupe múltiples líneas */
+  word-wrap: break-word; /* Rompe las palabras largas para que encajen en el ancho */
+  max-width: 300px; /* Ajusta el ancho máximo de la notificación */
+  overflow: hidden; /* Evita que el contenido se desborde */
+  text-overflow: ellipsis; /* Muestra puntos suspensivos (...) si el contenido se desborda */
+  margin: 5px 0; /* Espaciado entre notificaciones */
+}

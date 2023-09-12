@@ -8,6 +8,7 @@ import {HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AuthModule,
     HttpClientModule,
     AppRoutingModule,
+    BsDatepickerModule.forRoot(),
     BrowserAnimationsModule
   ],
   providers: [interceptorProvider],

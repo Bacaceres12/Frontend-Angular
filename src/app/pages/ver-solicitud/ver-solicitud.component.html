@@ -1,1 +1,27 @@
-<p>ver-solicitud works!</p>
+<h2 class="text-info">ESTUDIANTES</h2>
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="tabla-tramites row-border hover mi-tabla-colorida">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Programa</th>
+      <th>Correo</th>
+      <th>Jornada</th>
+      <th>Roles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of usuarios">
+      <td>{{usuario.id}}</td>
+      <td>{{usuario.nombre}}</td>
+      <td>{{usuario.programa}}</td>
+      <td>{{usuario.correo}}</td>
+      <td>{{usuario.jornada}}</td>
+      <td>
+        <ul>
+          <li *ngFor="let rol of usuario.roles">{{rol.rolNombre}}</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>

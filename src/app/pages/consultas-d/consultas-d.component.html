@@ -1,0 +1,58 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-hover " datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Estado</th>
+        <th>Respuesta</th>
+        <th>Nombre</th>
+        <th>Tipo de solicitud</th>
+        <th>Asignación</th>
+        <th>Cedula</th>
+        <th>Jornada</th>
+        <th>Semestre</th>
+        <th>FechaCita</th>
+        <th>Acciones</th> <!-- Agregar la columna de acciones -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let consulta of consultas; let i = index"
+          [class.table-danger]="consulta.estado === 'Rechazado'"
+          [class.table-primary]="consulta.estado === 'Aprobado'">
+        <td>{{ consulta.fechaConsulta }}</td>
+        <td>
+          <span *ngIf="consulta.estado === 'Aprobado'" class="text-success">
+              <i class="fas fa-check-circle"></i> Aprobado
+          </span>
+          <span *ngIf="consulta.estado === 'Rechazado'" class="text-danger">
+              <i class="fas fa-times-circle"></i> Rechazado
+          </span>
+          <span *ngIf="consulta.estado === 'En tramite'" class="text-warning">
+              <i class="fas fa-clock"></i> En trámite
+          </span>
+        </td>
+        <td>{{ consulta.Respuesta }}</td>
+        <td>{{ consulta.tramitesEntity.nombre }}</td>
+        <td>{{ consulta.tramitesEntity.tiposol }}</td>
+        <td>{{ consulta.tramitesEntity.tiposol === 'Cita con el director' ? 'N/A' : consulta.tramitesEntity.asignatura }}</td>
+        <td>{{ consulta.tramitesEntity.cc }}</td>
+        <td>{{ consulta.tramitesEntity.jornada }}</td>
+        <td>{{ consulta.tramitesEntity.semestre }}</td>
+        <td>{{ consulta.tramitesEntity.tiposol === 'Cancelacion Asignatura' || consulta.tramitesEntity.tiposol === 'Adicionar Asignatura' ? 'N/A' : consulta.tramitesEntity.fecha }}</td>
+        <td>
+          <button class="btn btn-success" (click)="actualizarConsulta(consulta, i)">
+            <i class="fas fa-edit"></i> Actualizar
+          </button>
+          <button class="btn btn-warning" (click)="verDetalleConsulta(consulta)">
+            Ver Detalles
+          </button>
+        </td>
+      </tr>
+    </tbody>
+
+
+
+
+  </table>
+</div>
+

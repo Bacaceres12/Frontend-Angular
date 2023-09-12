@@ -76,11 +76,8 @@ export class LoginComponent implements OnInit {
             // Eliminar valores del almacenamiento local
             localStorage.removeItem('password');
           }
-          const ultimaConsulta = this.notificationService.obtenerUltimaConsultaActualizada();
-              // Si existe una última consulta, mostrar el mensaje de notificación
-           if (ultimaConsulta) {
-            this.toastrService.info(`La consulta "${ultimaConsulta.estado}" ha sido actualizada por el Director.`);
-          }
+          this.notificationService.sendNotification('El estado del trámite ha sido actualizado.');
+          // Si existe una última consulta, mostrar el mensaje de notificación
 
 
           this.router.navigateByUrl('/');

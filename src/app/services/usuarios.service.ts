@@ -1,3 +1,4 @@
+import { TokenService } from './token.service';
 import { Usuario } from './../models/usuario';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -13,11 +14,15 @@ export class UsuariosService {
   usuarioURL= environment.usuarioURL;
   private rolURL= environment.rolURL;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+     private httpClient: HttpClient,
+     private tokenService: TokenService
+    ) { }
 
   getAll(): Observable<Usuario[]> {
     return this.httpClient.get<Usuario[]>(this.usuarioURL);
   }
+
 
   public update(usuario: Usuario): Observable<any> {
     return this.httpClient.put<any>(`${this.usuarioURL}${usuario.id}`, usuario);
@@ -34,6 +39,7 @@ export class UsuariosService {
     const url = `${this.usuarioURL}${id}/foto`; // Asegúrate de eliminar el duplicado "/usuario" en la URL
     return this.httpClient.post(url, formData);
   }
+
 
 
 }

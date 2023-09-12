@@ -23,8 +23,12 @@ import { DatePipe } from '@angular/common';
 })
 export class ConsultasComponent implements OnInit {
 
+  darkMode = false;
+
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
+  isTableInitialized = false;
+  showTable = false;
 
   listaVacia: any = undefined;
   consultas: Consulta[] = [];
@@ -35,42 +39,59 @@ export class ConsultasComponent implements OnInit {
   constructor(
     private consultasService: ConsultasService,
     private tramitesService: TramitesService,
-    private notificationService: NotificationService,
     private toastr: ToastrService,
     public tokenService: TokenService,
     private router: Router,
 
+
   ){}
 
-  ngOnInit(): void {
-    this.cargarConsultasTodas();
-    this.currentDate = new Date();
-    this.dtOptions = {
-      pageLength: 10,
-      searching: true,
-      responsive: true,
-      info: true,
-      language: {url:'//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'}
-    };
 
+  ngOnInit(): void {
     this.cargarConsultas();
 
   }
 
   ngOnDestroy(): void {
-    this.dtTrigger.unsubscribe();
-  }
-
-  cargarConsultasTodas(): void {
-    if (this.tokenService.isDirector()) {
-      this.consultasService.listaConsultaTodas().subscribe(
-        data => {
-          this.consultas = data;
-          this.dtTrigger.next();
-        }
-      );
+    if (this.dtTrigger) {
+      this.dtTrigger.unsubscribe();
     }
   }
+
+
+  getEventClass(estado: string): string {
+    switch (estado) {
+      case 'Aprobado':
+        return 'approved';
+      case 'Rechazado':
+        return 'rejected';
+      case 'En Trámite':
+        return 'in-progress';
+      default:
+        return ''; // Clase por defecto o ninguna
+    }
+  }
+
+  getIconClass(estado: string): string {
+    switch (estado) {
+      case 'Aprobado':
+        return 'fas fa-check-circle approved-icon animated-icon';
+      case 'Rechazado':
+        return 'fas fa-times-circle rejected-icon animated-icon';
+      case 'En Trámite':
+        return 'fas fa-hourglass-half in-progress-icon animated-icon';
+      default:
+        return 'fas fa-info-circle default-icon animated-icon'; // Icono por defecto
+    }
+  }
+
+  toggleDarkMode(): void {
+    this.darkMode = !this.darkMode;
+  }
+
+
+
+
 
 
 cargarConsultas(): void {
@@ -85,51 +106,6 @@ cargarConsultas(): void {
   );
 }
 
-
-actualizarConsulta(consulta: Consulta) {
-  Swal.fire({
-    title: 'Actualizar consulta',
-    html: `
-      <div class="form-group">
-        <label for="estado">Estado:</label>
-        <select id="estado" class="form-control">
-          <option value="Aprobado">Aprobado</option>
-          <option value="Rechazado">Rechazado</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="respuesta">Respuesta:</label>
-        <textarea id="respuesta" class="form-control"></textarea>
-      </div>
-    `,
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Actualizar'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      const estado = (<HTMLSelectElement>document.getElementById('estado')).value;
-      const respuesta = (<HTMLTextAreaElement>document.getElementById('respuesta')).value;
-
-      consulta.estado = estado;
-      consulta.Respuesta = respuesta;
-
-      this.consultasService.updateConsulta(consulta.idConsulta, consulta).subscribe(
-        () => {
-          this.toastr.success('La consulta ha sido actualizada correctamente.');
-          this.cargarConsultasTodas();
-          this.notificationService.actualizarConsulta(consulta);
-           console.log('Consulta a actualizar:', consulta);
-
-        },
-        (err) => {
-          console.log(err);
-          this.toastr.error('Ha ocurrido un error al actualizar la consulta.');
-        }
-      );
-    }
-  });
-}
 
 
 buscarConsulta(): void {

@@ -23,3 +23,110 @@
 #tablaConsultas tr:hover {
   background-color: #ddd;
 }
+
+
+.timeline-container {
+  overflow-x: auto;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: row;
+}
+
+.timeline-event {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+.event-icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.event-content {
+  text-align: center;
+}
+
+.event-header {
+  font-weight: bold;
+}
+
+.event-type {
+  font-weight: bold;
+  color: #333;
+}
+
+.event-response {
+  margin-top: 5px;
+}
+
+.event-date {
+  margin-top: 5px;
+  color: #777;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animated-icon {
+  animation: rotate 2s linear infinite;
+}
+
+
+/* ... otros estilos ... */
+
+.approved-icon {
+  color: green;
+}
+
+.rejected-icon {
+  color: red;
+}
+
+/* ... otros estilos ... */
+
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-mode-toggle {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333; /* Color para el ícono en modo claro */
+  transition: color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+  color: #fff; /* Color para el ícono en modo oscuro al pasar el mouse */
+}

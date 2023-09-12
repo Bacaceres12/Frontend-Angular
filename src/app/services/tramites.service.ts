@@ -32,4 +32,8 @@ export class TramitesService {
   public delete(idSolicitud: number): Observable<any> {
     return this.httpClient.delete<any>(`${this.tramitesURL}${idSolicitud}`);
   }
+
+  public sendNotificationEmail(correoElectronico: string): Observable<any> {
+    return this.httpClient.post<any>(`${this.tramitesURL}send-notification`, { correoElectronico });
+  }
 }

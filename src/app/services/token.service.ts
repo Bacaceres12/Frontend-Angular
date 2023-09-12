@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
+import { Subject } from 'rxjs';
+import { Usuario } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
+
+
 
   constructor() { }
 
@@ -34,6 +38,7 @@ export class TokenService {
     const nombreUsuario = valuesJson.nombreUsuario;
     return nombreUsuario;
   }
+
 
   isAdmin(): boolean {
     if (!this.isLogged()) {
@@ -67,12 +72,29 @@ export class TokenService {
     return true;
   }
 
+  isUser(): boolean {
+    if (!this.isLogged()) {
+      return false;
+    }
+    const token = this.getToken();
+    const payload = token.split('.')[1];
+    const values = atob(payload);
+    const valuesJson = JSON.parse(values);
+    const roles = valuesJson.roles;
+    if (roles.indexOf('user') < 0) {
+      return false;
+    }
+    return true;
+  }
+
 
   getIdUsuario(): number {
     const token = this.getToken();
     if (token) {
       const decoded: any = jwt_decode(token);
-      return decoded.id; // Cambia "id" por la propiedad adecuada que contiene el ID de usuario en tu token
+      const userId = decoded.id; // Cambia "id" por la propiedad adecuada que contiene el ID de usuario en tu token
+      console.log('ID de usuario:', userId);
+      return userId;
     }
     return null;
   }

@@ -24,19 +24,19 @@ export class SidebarService {
       titulo: 'Dashboard',
       icono: 'nav-icon fas fa-tachometer-alt',
       submenu: [
-        { titulo: 'Editar solicitudes', url: 'consultas', icono: 'fas fa-edit'},
-        { titulo: 'Ver solicitudes', url: 'versolicitud', icono: 'fas fa-eye' },
-        { titulo: 'Asignaturas', url: 'asignaturas', icono: 'fas fa-book' },
-        { titulo: 'Calendario', url: 'calendario', icono: 'fas fa-calendar-alt' },
+        { titulo: 'Solicitudes', url: 'consultas-d', icono: 'fas fa-edit'},
+        { titulo: 'Estudiantes', url: 'versolicitud', icono: 'fas fa-user-graduate' },
+        {titulo: 'Estadísticas', url: 'estadisticas',  icono: 'fas fa-chart-bar'},
+        { titulo: 'Asignación', url: 'asignaturas', icono: 'fas fa-book' },
+        { titulo: 'Calendario', url: 'calendario-d', icono: 'fas fa-calendar-alt' },
       ]
     },
 
     {
-      titulo: 'Admin',
+      titulo: 'Configuración',
       icono: 'nav-icon fas fa-cogs',
       submenu: [
-        {titulo: 'Configuración', url: 'configuracion', icono: 'nav-icon fas fa-cogs'},
-        {titulo: 'Estadísticas', url: 'estadisticas'},
+        {titulo: 'plantilla', url: 'configuracion', icono: 'nav-icon fas fa-cogs'},
       ]
     }
   ];

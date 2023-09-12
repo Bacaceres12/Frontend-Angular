@@ -1,37 +1,6 @@
-<div *ngIf="tokenService.isDirector()">
-  <table class="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
-    <thead>
-      <tr>
-        <th>Fecha</th>
-        <th>Estado</th>
-        <th>Respuesta</th>
-        <th>Nombre</th>
-        <th>Tipo de solicitud</th>
-        <th>Cedula</th>
-        <th>Jornada</th>
-        <th>FechaCita</th>
-        <th>Acciones</th> <!-- Agregar la columna de acciones -->
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let consulta of consultas">
-        <td>{{ consulta.fechaConsulta }}</td>
-        <td>{{ consulta.estado }}</td>
-        <td>{{ consulta.Respuesta }}</td>
-        <td>{{ consulta.tramitesEntity.nombre }}</td>
-        <td>{{ consulta.tramitesEntity.tiposol }}</td>
-        <td>{{ consulta.tramitesEntity.cc }}</td>
-        <td>{{ consulta.tramitesEntity.jornada }}</td>
-        <td>{{ consulta.tramitesEntity.fecha}}</td>
-        <td> <!-- Agregar el botón de actualizar -->
-          <button class="btn btn-primary" (click)="actualizarConsulta(consulta)">Actualizar</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<div class="app-container" [ngClass]="darkMode ? 'dark-mode' : ''">
 
-<div *ngIf="!tokenService.isDirector()" class="card">
+<div class="card">
   <div class="card-header">
     <h3 class="card-title">Búsqueda de trámites</h3>
   </div>
@@ -83,3 +52,28 @@
     </div>
   </div>
 </div>
+
+
+<div class="timeline-container">
+  <div class="timeline">
+    <div *ngFor="let consulta of consultas" class="timeline-event" [ngClass]="getEventClass(consulta.estado)">
+      <div class="event-icon">
+        <i [class]="getIconClass(consulta.estado)"></i>
+      </div>
+      <div class="event-content">
+        <div class="event-header">{{ consulta.estado }}</div>
+        <div class="event-type">{{ consulta.tramitesEntity.tiposol }}</div>
+        <div class="event-response">{{ consulta.Respuesta }}</div>
+        <div class="event-date">{{ consulta.fechaConsulta | date }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button (click)="toggleDarkMode()" class="dark-mode-toggle">
+  <i [class]="darkMode ? 'fas fa-sun' : 'fas fa-moon'"></i>
+</button>
+
+</div>
+
+
